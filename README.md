@@ -126,3 +126,75 @@ Each scenario was validated using:
 * **Kibana Dashboard**
 * **Wazuh alerts in `/var/ossec/logs/alerts/alerts.json`**
 * **Screenshots captured under `/screenshots` folder**
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Reflection & Evaluation questions
+### 1. What is the role of SIEM in modern cybersecurity?
+
+SIEM (Security Information and Event Management) collects, aggregates, and analyzes security logs from multiple sources to detect threats in real-time. It enables centralized monitoring, alerting, and correlation of security events, helping organizations respond quickly to attacks and maintain compliance.
+
+---
+
+### 2. What challenges did you face while setting up your SOC lab?
+
+Challenges included configuring log forwarding properly, ensuring time synchronization across VMs, handling different log formats, tuning detection rules to reduce false positives, and setting up a network environment that simulates real-world conditions without complexity overwhelming the system.
+
+---
+
+### 3. What are the differences between Sysmon logs and Windows Security logs?
+
+* **Sysmon logs** provide detailed, process-level information like process creation, network connections, and file changes, offering granular visibility into system activity.
+* **Windows Security logs** focus on audit events such as login attempts, account changes, and policy modifications, providing insight into security-relevant user and system activities.
+
+---
+
+### 4. How does a brute force attack appear in logs? Mention specific Event IDs.
+
+A brute force attack typically shows multiple failed login attempts followed by a successful login.
+Key Event IDs:
+
+* **4625**: Failed login attempts.
+* **4624 (LogonType 3 or 10)**: Successful logins (network or remote interactive).
+
+---
+
+### 5. How would you detect a login outside normal business hours?
+
+Define business hours in the SIEM or detection logic and create rules to alert on successful logins occurring outside these hours by filtering event timestamps. Typically, look for Event ID **4624** with logon type indicating interactive or remote login outside the defined time window.
+
+---
+
+### 6. Describe how RDP lateral movement is tracked in event logs.
+
+RDP lateral movement is detected by monitoring for:
+
+* Multiple failed RDP login attempts (Event ID **4625**).
+* Followed by a successful RDP login (Event ID **4624**, LogonType 10).
+* Correlate source IPs with internal network addresses and process creation events (e.g., `mstsc.exe` via Sysmon) to confirm suspicious lateral movement activity.
+
+---
+
+### 7. What is the risk of log tampering, and how can we detect it?
+
+Log tampering hides attacker activity by deleting or clearing logs, preventing forensic analysis and detection.
+Detection methods include:
+
+* Monitoring event IDs like **1102** (log cleared).
+* Detecting process executions of tools like `wevtutil`, `Clear-EventLog`, or suspicious PowerShell commands via Sysmon and PowerShell logs.
+
+---
+
+### 8. What improvements would you make in your lab setup if given more time?
+
+Improvements could include integrating more diverse log sources (firewalls, IDS), automating alert response workflows, implementing threat intelligence feeds, refining correlation rules to reduce false positives, and testing more complex attack simulations for advanced detection capabilities.
+
+---
+
+### 9. How will this phase help you in real-world interviews or jobs?
+
+It provides hands-on experience with SIEM setup, attack simulation, log analysis, and detection rule creation. This practical knowledge demonstrates my understanding of security monitoring, incident detection, and response workflows, which are highly valued in cybersecurity roles.
+
+---
+
+### 10. What was your biggest takeaway from Phase 1?
+
+Understanding how crucial log collection and correlation are to effective threat detection, and how even basic simulated attacks can reveal gaps in security posture. Also, learning the importance of continuous tuning and validation of detection rules to build a reliable SOC environment.
