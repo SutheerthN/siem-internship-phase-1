@@ -55,8 +55,8 @@ To detect and alert on successful RDP connections from suspicious IPs, especiall
 ````
 
 ## Sample Alert Screenshot
+![Screenshot 2025-06-13 184639](https://github.com/user-attachments/assets/ae5371fe-b326-49f4-9e83-b86ce7248d29)
 
-![alert](images/rdp-lateral-movement-alert.png)
 
 
 ## Analyst Notes/Recommendations
