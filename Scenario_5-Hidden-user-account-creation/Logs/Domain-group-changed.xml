@@ -1,0 +1,116 @@
+{
+  "_index": "wazuh-alerts-4.x-2025.06.13",
+  "_id": "b4eAaZcB6KoDmKXPIxZl",
+  "_score": null,
+  "_source": {
+    "input": {
+      "type": "log"
+    },
+    "agent": {
+      "ip": "192.168.0.7",
+      "name": "win11ra",
+      "id": "002"
+    },
+    "manager": {
+      "name": "wazuh-server"
+    },
+    "data": {
+      "win": {
+        "eventdata": {
+          "subjectLogonId": "0x728d0",
+          "targetUserName": "None",
+          "memberSid": "S-1-5-21-95315910-2805732229-2769656751-1006",
+          "subjectUserSid": "S-1-5-21-95315910-2805732229-2769656751-1000",
+          "subjectDomainName": "WINDOWS11",
+          "targetDomainName": "WINDOWS11",
+          "targetSid": "S-1-5-21-95315910-2805732229-2769656751-513",
+          "subjectUserName": "MAVERICK"
+        },
+        "system": {
+          "eventID": "4728",
+          "keywords": "0x8020000000000000",
+          "providerGuid": "{54849625-5478-4994-a5ba-3e3b0328c30d}",
+          "level": "0",
+          "channel": "Security",
+          "opcode": "0",
+          "message": "\"A member was added to a security-enabled global group.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-95315910-2805732229-2769656751-1000\r\n\tAccount Name:\t\tMAVERICK\r\n\tAccount Domain:\t\tWINDOWS11\r\n\tLogon ID:\t\t0x728D0\r\n\r\nMember:\r\n\tSecurity ID:\t\tS-1-5-21-95315910-2805732229-2769656751-1006\r\n\tAccount Name:\t\t-\r\n\r\nGroup:\r\n\tSecurity ID:\t\tS-1-5-21-95315910-2805732229-2769656751-513\r\n\tGroup Name:\t\tNone\r\n\tGroup Domain:\t\tWINDOWS11\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-\"",
+          "version": "0",
+          "systemTime": "2025-06-13T13:34:35.0762345Z",
+          "eventRecordID": "46182",
+          "threadID": "4912",
+          "computer": "windows11",
+          "task": "13826",
+          "processID": "736",
+          "severityValue": "AUDIT_SUCCESS",
+          "providerName": "Microsoft-Windows-Security-Auditing"
+        }
+      }
+    },
+    "rule": {
+      "mail": false,
+      "level": 5,
+      "pci_dss": [
+        "8.1.2",
+        "10.2.5"
+      ],
+      "hipaa": [
+        "164.312.a.2.I",
+        "164.312.a.2.II",
+        "164.312.b"
+      ],
+      "tsc": [
+        "CC6.8",
+        "CC7.2",
+        "CC7.3"
+      ],
+      "description": "Domain Users Group Changed",
+      "groups": [
+        "windows",
+        "windows_security",
+        "group_changed",
+        "win_group_changed"
+      ],
+      "nist_800_53": [
+        "AC.2",
+        "IA.4",
+        "AU.14",
+        "AC.7"
+      ],
+      "gdpr": [
+        "IV_35.7.d",
+        "IV_32.2"
+      ],
+      "firedtimes": 1,
+      "mitre": {
+        "technique": [
+          "Domain Policy Modification"
+        ],
+        "id": [
+          "T1484"
+        ],
+        "tactic": [
+          "Defense Evasion",
+          "Privilege Escalation"
+        ]
+      },
+      "id": "60160",
+      "gpg13": [
+        "7.10"
+      ]
+    },
+    "location": "EventChannel",
+    "decoder": {
+      "name": "windows_eventchannel"
+    },
+    "id": "1749821690.4005585",
+    "timestamp": "2025-06-13T13:34:50.395+0000"
+  },
+  "fields": {
+    "timestamp": [
+      "2025-06-13T13:34:50.395Z"
+    ]
+  },
+  "sort": [
+    1749821690395
+  ]
+}
