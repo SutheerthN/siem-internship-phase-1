@@ -1,0 +1,127 @@
+{
+  "_index": "wazuh-alerts-4.x-2025.06.13",
+  "_id": "boeAaZcB6KoDmKXPIxZl",
+  "_score": null,
+  "_source": {
+    "input": {
+      "type": "log"
+    },
+    "agent": {
+      "ip": "192.168.0.7",
+      "name": "win11ra",
+      "id": "002"
+    },
+    "manager": {
+      "name": "wazuh-server"
+    },
+    "data": {
+      "win": {
+        "eventdata": {
+          "subjectLogonId": "0x728d0",
+          "scriptPath": "%%1793",
+          "passwordLastSet": "6/13/2025 7:04:35 PM",
+          "homeDirectory": "%%1793",
+          "subjectDomainName": "WINDOWS11",
+          "displayName": "%%1793",
+          "accountExpires": "%%1794",
+          "homePath": "%%1793",
+          "samAccountName": "support1",
+          "targetUserName": "support1",
+          "subjectUserSid": "S-1-5-21-95315910-2805732229-2769656751-1000",
+          "primaryGroupId": "513",
+          "logonHours": "%%1797",
+          "targetDomainName": "WINDOWS11",
+          "profilePath": "%%1793",
+          "userWorkstations": "%%1793",
+          "oldUacValue": "0x15",
+          "newUacValue": "0x10",
+          "targetSid": "S-1-5-21-95315910-2805732229-2769656751-1006",
+          "userAccountControl": "    %%2048    %%2050",
+          "subjectUserName": "MAVERICK"
+        },
+        "system": {
+          "eventID": "4738",
+          "keywords": "0x8020000000000000",
+          "providerGuid": "{54849625-5478-4994-a5ba-3e3b0328c30d}",
+          "level": "0",
+          "channel": "Security",
+          "opcode": "0",
+          "message": "\"A user account was changed.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-95315910-2805732229-2769656751-1000\r\n\tAccount Name:\t\tMAVERICK\r\n\tAccount Domain:\t\tWINDOWS11\r\n\tLogon ID:\t\t0x728D0\r\n\r\nTarget Account:\r\n\tSecurity ID:\t\tS-1-5-21-95315910-2805732229-2769656751-1006\r\n\tAccount Name:\t\tsupport1\r\n\tAccount Domain:\t\tWINDOWS11\r\n\r\nChanged Attributes:\r\n\tSAM Account Name:\tsupport1\r\n\tDisplay Name:\t\t<value not set>\r\n\tUser Principal Name:\t-\r\n\tHome Directory:\t\t<value not set>\r\n\tHome Drive:\t\t<value not set>\r\n\tScript Path:\t\t<value not set>\r\n\tProfile Path:\t\t<value not set>\r\n\tUser Workstations:\t<value not set>\r\n\tPassword Last Set:\t6/13/2025 7:04:35 PM\r\n\tAccount Expires:\t\t<never>\r\n\tPrimary Group ID:\t513\r\n\tAllowedToDelegateTo:\t-\r\n\tOld UAC Value:\t\t0x15\r\n\tNew UAC Value:\t\t0x10\r\n\tUser Account Control:\t\r\n\t\tAccount Enabled\r\n\t\t'Password Not Required' - Disabled\r\n\tUser Parameters:\t-\r\n\tSID History:\t\t-\r\n\tLogon Hours:\t\tAll\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-\"",
+          "version": "0",
+          "systemTime": "2025-06-13T13:34:35.1071657Z",
+          "eventRecordID": "46185",
+          "threadID": "4912",
+          "computer": "windows11",
+          "task": "13824",
+          "processID": "736",
+          "severityValue": "AUDIT_SUCCESS",
+          "providerName": "Microsoft-Windows-Security-Auditing"
+        }
+      }
+    },
+    "rule": {
+      "mail": false,
+      "level": 8,
+      "pci_dss": [
+        "8.1.2",
+        "10.2.5"
+      ],
+      "hipaa": [
+        "164.312.a.2.I",
+        "164.312.a.2.II",
+        "164.312.b"
+      ],
+      "tsc": [
+        "CC6.8",
+        "CC7.2",
+        "CC7.3"
+      ],
+      "description": "User account changed",
+      "groups": [
+        "windows",
+        "windows_security",
+        "account_changed"
+      ],
+      "nist_800_53": [
+        "AC.2",
+        "IA.4",
+        "AU.14",
+        "AC.7"
+      ],
+      "gdpr": [
+        "IV_35.7.d",
+        "IV_32.2"
+      ],
+      "firedtimes": 1,
+      "mitre": {
+        "technique": [
+          "Account Manipulation"
+        ],
+        "id": [
+          "T1098"
+        ],
+        "tactic": [
+          "Persistence"
+        ]
+      },
+      "id": "60110",
+      "gpg13": [
+        "7.10"
+      ]
+    },
+    "location": "EventChannel",
+    "decoder": {
+      "name": "windows_eventchannel"
+    },
+    "id": "1749821690.4000682",
+    "timestamp": "2025-06-13T13:34:50.406+0000"
+  },
+  "fields": {
+    "timestamp": [
+      "2025-06-13T13:34:50.406Z"
+    ]
+  },
+  "sort": [
+    1749821690406
+  ]
+}
