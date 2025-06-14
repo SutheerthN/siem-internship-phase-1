@@ -1,0 +1,92 @@
+{
+  "_index": "wazuh-alerts-4.x-2025.06.13",
+  "_id": "W4d7aZcB6KoDmKXPrRbf",
+  "_score": null,
+  "_source": {
+    "input": {
+      "type": "log"
+    },
+    "agent": {
+      "ip": "192.168.0.7",
+      "name": "win11ra",
+      "id": "002"
+    },
+    "manager": {
+      "name": "wazuh-server"
+    },
+    "data": {
+      "win": {
+        "system": {
+          "eventID": "1102",
+          "keywords": "0x4020000000000000",
+          "providerGuid": "{fc65ddd8-d6ef-4962-83d5-6e5cfe9ce148}",
+          "level": "4",
+          "channel": "Security",
+          "opcode": "0",
+          "message": "\"The audit log was cleared.\r\nSubject:\r\n\tSecurity ID:\tS-1-5-21-95315910-2805732229-2769656751-1000\r\n\tAccount Name:\tMAVERICK\r\n\tDomain Name:\tWINDOWS11\r\n\tLogon ID:\t0x728D0\"",
+          "version": "1",
+          "systemTime": "2025-06-13T13:30:09.8391139Z",
+          "eventRecordID": "46154",
+          "threadID": "4120",
+          "computer": "windows11",
+          "task": "104",
+          "processID": "2188",
+          "severityValue": "INFORMATION",
+          "providerName": "Microsoft-Windows-Eventlog"
+        },
+        "logFileCleared": {
+          "subjectLogonId": "0x728d0",
+          "clientProcessId": "140",
+          "subjectUserSid": "S-1-5-21-95315910-2805732229-2769656751-1000",
+          "subjectDomainName": "WINDOWS11",
+          "clientProcessStartKey": "8725724278031728",
+          "subjectUserName": "MAVERICK"
+        }
+      }
+    },
+    "rule": {
+      "firedtimes": 1,
+      "mail": false,
+      "level": 5,
+      "description": "The audit log was cleared",
+      "groups": [
+        "windows",
+        "windows_logs",
+        "log_clearing_auditlog"
+      ],
+      "mitre": {
+        "technique": [
+          "Indicator Removal"
+        ],
+        "id": [
+          "T1070"
+        ],
+        "tactic": [
+          "Defense Evasion"
+        ]
+      },
+      "id": "63103",
+      "gpg13": [
+        "10.1"
+      ],
+      "gdpr": [
+        "II_5.1.f",
+        "IV_30.1.g"
+      ]
+    },
+    "location": "EventChannel",
+    "decoder": {
+      "name": "windows_eventchannel"
+    },
+    "id": "1749821400.3899354",
+    "timestamp": "2025-06-13T13:30:00.803+0000"
+  },
+  "fields": {
+    "timestamp": [
+      "2025-06-13T13:30:00.803Z"
+    ]
+  },
+  "sort": [
+    1749821400803
+  ]
+}
