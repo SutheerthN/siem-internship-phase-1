@@ -1,7 +1,7 @@
-# Detection Use Case: Suspicious Logon Time Detection (2:00 PM – 8:00 PM)
+# Detection Use Case: Suspicious Logon Time Detection (8:00PM to 7:00AM)
 
 ## Scenario Description
-An attacker gains access to valid credentials and logs in to the system during non-standard business hours (2:00 PM to 8:00 PM), which is considered suspicious in the organization's context.
+An attacker gains access to valid credentials and logs in to the system during non-standard business hours (8:00PM to 7:00AM), which is considered suspicious in the organization's context.
 
 ## Objective
 To detect successful logon attempts occurring during predefined suspicious hours (8:00PM to 7:00AM), which may indicate unauthorized access or lateral movement.
